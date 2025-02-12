@@ -5,7 +5,9 @@ import { Row } from "react-bootstrap";
 import Header from "./components/Header";
 import TableUsers from "./components/TableUsers";
 import ModalAddNew from "./components/ModalAddNew";
-import { ToastContainer, toast, Bounce } from 'react-toastify';
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import Home from "./components/Home";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [isShowModalAddNew, setIsShowModalAddNew] = useState(false);
@@ -17,7 +19,10 @@ function App() {
       <div className="app-container">
         <Header />
         <Container>
-          <TableUsers />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/users" element={<TableUsers />} />
+          </Routes>
         </Container>
 
         <ModalAddNew show={isShowModalAddNew} handleClose={handleClose} />
