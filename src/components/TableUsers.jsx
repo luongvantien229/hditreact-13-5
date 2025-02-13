@@ -13,6 +13,7 @@ import "./TableUsers.scss";
 import { CSVLink } from "react-csv";
 import { toast } from "react-toastify";
 import Papa from "papaparse";
+import { useSelector } from "react-redux";
 
 const TableUsers = (props) => {
   const [listUsers, setListUsers] = useState([]);
@@ -32,6 +33,7 @@ const TableUsers = (props) => {
   const [keyWord, setKeyWord] = useState("");
 
   const [dataExport, setDataExport] = useState([]);
+  
 
   const handleClose = () => {
     setIsShowModalAddNew(false);

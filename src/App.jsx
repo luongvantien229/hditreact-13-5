@@ -7,8 +7,12 @@ import ModalAddNew from "./components/ModalAddNew";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import { UserContext } from "./context/UserContext";
 import AppRoutes from "./routes/AppRoute";
+import { useDispatch, useSelector } from "react-redux";
+import { handleReFresh } from "./redux/actions/userAction";
 
 function App() {
+  const dispatch = useDispatch()
+  const dataUserRedux = useSelector(state => state.user.account)
   const [isShowModalAddNew, setIsShowModalAddNew] = useState(false);
   const handleClose = () => {
     setIsShowModalAddNew(false);
@@ -16,10 +20,7 @@ function App() {
   const { user, loginContext } = useContext(UserContext);
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      loginContext(
-        localStorage.getItem("email"),
-        localStorage.getItem("token")
-      );
+      dispatch(handleReFresh())
     }
   }, []);
   return (
