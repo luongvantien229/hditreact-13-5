@@ -75,7 +75,7 @@ button:focus-visible {
 
 .app-container {
   .add-new {
-    display: flex;
+    // display: flex;
     align-items: center;
     justify-content: space-between;
   }
@@ -146,4 +146,12 @@ button:focus-visible {
       }
     }
   }
+}
+
+.customize-table{
+  overflow-x: auto;
+}
+
+.pagination {
+  justify-content: center;
 }
