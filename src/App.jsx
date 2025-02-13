@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./App.scss";
 import Container from "react-bootstrap/Container";
 import { Row } from "react-bootstrap";
@@ -8,12 +8,20 @@ import ModalAddNew from "./components/ModalAddNew";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import Home from "./components/Home";
 import { Routes, Route, Link } from "react-router-dom";
+import Login from "./components/Login";
+import { UserContext } from "./context/UserContext";
 
 function App() {
   const [isShowModalAddNew, setIsShowModalAddNew] = useState(false);
   const handleClose = () => {
     setIsShowModalAddNew(false);
   };
+  const {user, loginContext} = useContext(UserContext)
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      loginContext(localStorage.getItem('email'), localStorage.getItem('token'))
+    }
+  }, [])
   return (
     <>
       <div className="app-container">
@@ -22,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/users" element={<TableUsers />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Container>
 

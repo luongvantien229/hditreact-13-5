@@ -79,4 +79,71 @@ button:focus-visible {
     align-items: center;
     justify-content: space-between;
   }
+
+  .login-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    .title{
+      text-align: center;
+      font-size: 23px;
+      font-weight: 600;
+      padding-top: 30px;
+
+    }
+    .text{
+      font-weight: 600;
+      padding-bottom: 3px;
+    }
+
+    input{
+      padding: 5px;
+      outline: none;
+      background: #1618230f;
+      border: #1618230f;
+      margin-bottom: 7px;
+      border-radius: 3px;
+      width: 100%;
+
+      &:hover{
+        background-color: #dedede;
+        // border: 1px solid #dedede;
+      }
+    }
+
+    button{
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 3px;
+      outline: none;
+      border: none;
+
+      &.active{
+        background-color: #fe2c55;
+        color: #fff;
+      }
+    }
+
+    button[disabled=disabled], button:disabled{
+      cursor: not-allowed;
+    }
+
+    .back{
+      text-align: center;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    .input-2{
+      position: relative;
+
+      i{
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 10px;
+      }
+    }
+  }
 }
